@@ -1,0 +1,4 @@
+registryCredentials:
+  registry: registry1.dso.mil
+  username: $REGISTRY_USER
+  password: $REGISTRY_PASS
