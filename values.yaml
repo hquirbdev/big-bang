@@ -8,9 +8,21 @@ offline: false
 # -- Single set of registry credentials used to pull all images deployed by BigBang.
 registryCredentials:
   registry: registry1.dso.mil
-  username: ""
-  password: ""
-  email: ""
+  username:
+    valueFrom:
+      secretKeyRef:
+        name: regcred
+        key: docker-username
+  password:
+    valueFrom:
+      secretKeyRef:
+        name: regcred
+        key: docker-password
+  email:
+    valueFrom:
+      secretKeyRef:
+        name: regcred
+        key: docker-email
 
 # -- Multiple sets of registry credentials used to pull all images deployed by BigBang.
 # Credentials will only be created when a valid combination exists, registry, username, and password (email is optional)
@@ -257,7 +269,7 @@ istiooperator:
 
 jaeger:
   # -- Toggle deployment of Jaeger.
-  enabled: true
+  enabled: false
   git:
     repo: https://repo1.dso.mil/platform-one/big-bang/apps/core/jaeger.git
     path: "./chart"
