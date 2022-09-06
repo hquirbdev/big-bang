@@ -24,9 +24,9 @@ env:
 
 registryCredentials:
   registry: registry1.dso.mil
-  username: $env.user
-  password: $env.pass
-  email: $env.email
+  username: {{ $env.user }}
+  password: {{ $env.password }}
+  email: {{ $env.email }}
 
 # -- Multiple sets of registry credentials used to pull all images deployed by BigBang.
 # Credentials will only be created when a valid combination exists, registry, username, and password (email is optional)
