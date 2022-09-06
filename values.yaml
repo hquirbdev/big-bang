@@ -17,7 +17,7 @@ env:
     name: private-registry
     key: password
 
-    email: 
+  email: 
     type: "secretRef"
     name: private-registry
     key: email
