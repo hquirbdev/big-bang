@@ -17,12 +17,12 @@ env:
       secretKeyRef:
         key: private-registry
         name: password
-  - name: mail
-      valueFrom:
+  - name: email
+    valueFrom:
       secretKeyRef:
         key: private-registry
-        name: email 
-
+        name: email
+        
 registryCredentials:
   registry: registry1.dso.mil
   username: $env.user
