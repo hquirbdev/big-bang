@@ -13,15 +13,15 @@ env:
         key: private-registry
         name: username
   - name: pass
-      valueFrom:
-        secretKeyRef:
-          key: private-registry
-          name: password
+    valueFrom:
+      secretKeyRef:
+        key: private-registry
+        name: password
   - name: mail
       valueFrom:
-        secretKeyRef:
-          key: private-registry
-          name: email 
+      secretKeyRef:
+        key: private-registry
+        name: email 
 
 registryCredentials:
   registry: registry1.dso.mil
