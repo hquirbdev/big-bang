@@ -7,22 +7,21 @@ offline: false
 
 # -- Single set of registry credentials used to pull all images deployed by BigBang.
 env:
-  - name: user
-    valueFrom:
-      secretKeyRef:
-        key: private-registry
-        name: username
-  - name: pass
-    valueFrom:
-      secretKeyRef:
-        key: private-registry
-        name: password
-  - name: email
-    valueFrom:
-      secretKeyRef:
-        key: private-registry
-        name: email
-        
+  user: 
+    type: "secretRef"
+    name: private-registry
+    key: username
+
+  password: 
+    type: "secretRef"
+    name: private-registry
+    key: password
+
+    email: 
+    type: "secretRef"
+    name: private-registry
+    key: email
+
 registryCredentials:
   registry: registry1.dso.mil
   username: $env.user
