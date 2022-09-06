@@ -6,11 +6,28 @@ domain: bigbang.dev
 offline: false
 
 # -- Single set of registry credentials used to pull all images deployed by BigBang.
+env:
+   - name: user
+      valueFrom:
+      secretKeyRef:
+        key: private-registry
+        name: username
+   - name: pass
+       valueFrom:
+       secretKeyRef:
+         key: private-registry
+         name: password
+   - name: mail
+       valueFrom:
+       secretKeyRef:
+         key: private-registry
+         name: email 
+
 registryCredentials:
   registry: registry1.dso.mil
-  username: ""
-  password: ""
-  email: ""
+  username: $env.user
+  password: $env.pass
+  email: $env.email
 
 # -- Multiple sets of registry credentials used to pull all images deployed by BigBang.
 # Credentials will only be created when a valid combination exists, registry, username, and password (email is optional)
