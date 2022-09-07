@@ -4,23 +4,22 @@ domain: bigbang.dev
 # -- (experimental) Toggle sourcing from external repos.
 # All this does right now is toggle GitRepositories, it is _not_ fully functional
 offline: false
+# and an empty file will abort the edit. If an error occurs while saving this file, it will be
+# reopened with the relevant failures.
+#
+
 
 # -- Single set of registry credentials used to pull all images deployed by BigBang.
 env:
   user: 
     type: "secretRef"
-    name: private-registry
+    name: mysecret-test
     key: username
 
   password: 
     type: "secretRef"
-    name: private-registry
+    name: mysecret-test
     key: password
-
-  email: 
-    type: "secretRef"
-    name: private-registry
-    key: email
 
 registryCredentials:
   registry: registry1.dso.mil
